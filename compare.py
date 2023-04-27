@@ -1,12 +1,12 @@
 import csv
 
 # Open the sample CSV file
-with open('test/sample.csv', 'r') as sample_file:
+with open('sample.csv', 'r') as sample_file:
     sample_reader = csv.reader(sample_file)
     sample_data = list(sample_reader)
 
 # Open the solution CSV file
-with open('test/sol.csv', 'r') as sol_file:
+with open('sol.csv', 'r') as sol_file:
     sol_reader = csv.reader(sol_file)
     sol_data = list(sol_reader)
 
@@ -19,7 +19,7 @@ part_of_union_index = sample_data[0].index('Part of Union')
 sol_part_of_union_index = sol_data[0].index('Part of Union')
 
 # Create a new CSV file for the matching and non-matching rows
-with open('test/matching_and_non_matching_rows.csv', 'w', newline='') as matching_file:
+with open('matching_and_non_matching_rows.csv', 'w', newline='') as matching_file:
     matching_writer = csv.writer(matching_file)
 
     # Write the header row
@@ -39,7 +39,7 @@ with open('test/matching_and_non_matching_rows.csv', 'w', newline='') as matchin
                     found_match = True
                     break
         if not found_match:
-            matching_writer.writerow([sample_row[room_id_index]] + sample_row + [''] + [''] * (len(sol_data[0]) - 1))
+            matching_writer.writerow([sample_row[room_id_index]] + sample_row + [''] + [''] * len(sol_data[0]))
 
     for sol_row in sol_data[1:]:
         found_match = False
@@ -52,7 +52,7 @@ with open('test/matching_and_non_matching_rows.csv', 'w', newline='') as matchin
                     found_match = True
                     break
         if not found_match:
-            matching_writer.writerow([''] + [''] * (len(sample_data[0]) - 1) + [sol_row[room_id_index]] + sol_row[1:])
+            matching_writer.writerow([''] + [''] * len(sample_data[0]) + [sol_row[room_id_index]] + sol_row[1:])
 
 # Display a message indicating the new file
 print('Comparison complete :)')
