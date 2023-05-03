@@ -113,6 +113,7 @@ def get_headers(file_path):
         return headers
 
 
+
 # Create the function to compare the CSV files
 def compare_csv():
     file1_path = file1_entry.get()
@@ -193,6 +194,28 @@ def compare_csv():
     # Show a message box to let the user know the script has finished running
     messagebox.showinfo("Success", "The new CSV file has been created.")
     
+def show_text():
+    # Create a new window
+    popup = tk.Toplevel(root)
+    popup.title("To be honest, I dont know what im doing either")
+    
+    # Create a label with the text to display
+    text_label = tk.Label(popup, text="This program is designed to read and write data in the CSV format. \nTo use it, you will need to input the data you want to compare into two separate CSV files.\n Please note that there is a minor bug in the program where the columns you select to make the match with\n need to have the same column header name.\n The program should run smoothly as long as you keep this in mind.")
+    text_label.pack()
+    
+
+    # Create a button to close the window
+    close_button = tk.Button(popup, text="Close", command=popup.destroy)
+    close_button.pack()
+    
+# Create a separator widget
+separator = ttk.Separator(root, orient="horizontal")
+separator.pack(fill="x")    
+    
+# Create a button to show the text
+text_button = ttk.Button(root, text="Help", command=show_text)
+text_button.pack(side="left")    
+    
 # Create the frame for displaying the selected file names
 file_frame = tk.Frame(root, bg="#d4d4d4")
 file_frame.pack(side=tk.BOTTOM, pady=10)    
@@ -208,6 +231,8 @@ file2_name_label.pack(side=tk.LEFT)
 # Create the button to compare the CSV files
 compare_button = tk.Button(root, text="Compare CSV Files", command=compare_csv)
 compare_button.pack(pady=10)
+
+
 
 # Run the main loop
 root.mainloop()    
