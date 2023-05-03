@@ -1,15 +1,32 @@
-This code opens a tkinter gui window with buttons for choosing two CSV files. Running the comparison will and compare the data in them to find matching and non-matching rows. It then writes the results to a new CSV file called 'matching_and_non_matching_rows.csv'.
+CSV File Comparator
+The CSV File Comparator is a Python script that allows you to compare two CSV files and create a new CSV file with the matching and non-matching rows. The script provides a graphical user interface (GUI) that allows you to select the input CSV files, the output CSV file, and the columns to match on.
 
-The code first opens the first CSV file and reads its contents using the csv.reader() function. It then opens the other CSV file and reads its contents in the same way.
+Getting Started
+To use the CSV File Comparator, you will need to have Python 3 installed on your computer. You can download Python 3 from the official website: https://www.python.org/downloads/
 
-Next, the code finds the index of the "Room ID", "Item Codes", and "Part of Union" columns in the sample CSV file. It also finds the index of the "Part of Union" column in the solution CSV file.
+Once you have Python 3 installed, you can download the CSV File Comparator script from this repository.
 
-The code then creates a new CSV file called 'matching_and_non_matching_rows.csv' using the csv.writer() function. It writes the header row to this file, which includes the column names from both the sample and solution CSV files.
+Alternatively you can use the compare4.exe to run the script without the need for installing Python. 
 
-The code then loops through each row in the sample CSV file and compares it to each row in the solution CSV file. If a matching row is found, the code writes it to the new CSV file. If a non-matching row is found, the code writes it to the new CSV file with an empty value for the solution room ID.
+Usage
+To use the CSV File Comparator, follow these steps:
 
-Finally, the code loops through each row in the second CSV file and checks if it has already been matched. If it has not been matched, the code writes it to the new CSV file with an empty value for the sample room ID.
+Open a terminal or command prompt and navigate to the directory where you downloaded the CSV File Comparator script.
 
-The code ends by printing a message indicating that the new file has been created.
+Run the script by typing the following command:
 
-For best results, ensure the target CSV files have the comparison headers in the same place. For example, Room ID could be the first column in both files and Item Codes could be the third in both. If they are different the results wont be as anticipated. 
+python csv_file_comparator.py
+
+The GUI will open. Use the "Browse" buttons to select the first CSV file, the second CSV file, and the output CSV file.
+
+Use the "Select the column or columns to match on" button to select the columns to match on. You can select multiple columns by holding down the "Ctrl" key while clicking on the column names.
+
+Click the "Compare CSV Files" button to compare the CSV files and create the new CSV file.
+
+Once the script has finished running, a message box will appear to let you know that the new CSV file has been created.
+
+Contributing
+If you would like to contribute to the CSV File Comparator, please fork the repository and submit a pull request.
+
+License
+The CSV File Comparator is licensed under the MIT License. See LICENSE.txt for more information.
